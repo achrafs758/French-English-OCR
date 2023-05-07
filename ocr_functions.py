@@ -64,7 +64,7 @@ def convert_pdf_to_txt_file(path):
     retstr.close()
     return t, nbPages
 
-@st.cache
+@st.cache_data
 def save_pages(pages):
   
   files = []
@@ -75,7 +75,7 @@ def save_pages(pages):
       files.append(file.name)
   
   # create zipfile object
-  zipPath = './folder/pdf_to_txt.zip'
+  zipPath = './folder/ocr_output.zip'
   zipObj = ZipFile(zipPath, 'w')
   for f in files:
     zipObj.write(f)
